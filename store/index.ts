@@ -9,7 +9,7 @@ const store = configureStore({
   },
 });
 
-export const RootState = typeof store.getState;
-export const ActionDispatch = typeof store.dispatch;
+export type RootState = ReturnType<typeof store.getState>;
+export type ActionDispatch = typeof store.dispatch;
 
 export default store;

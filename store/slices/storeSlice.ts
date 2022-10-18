@@ -1,5 +1,5 @@
 import { createSlice } from "@reduxjs/toolkit";
-import { Data } from "../../components/data";
+import data, { Data } from "../../components/data";
 
 type storeStateType = {
   cart: Data[];
@@ -10,7 +10,7 @@ type storeStateType = {
 
 const initialState: storeStateType = {
   cart: [],
-  storeItems: [],
+  storeItems: data,
   total: 0,
   amount: 0,
 };
