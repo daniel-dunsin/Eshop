@@ -1,11 +1,19 @@
-import React, { FC } from "react";
+import React, { FC, useEffect } from "react";
 import css from "../styles/Navbar.module.css";
-import { useSelector } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { RootState } from "../store";
 import Link from "next/link";
+import { storeActions } from "../store/slices/storeSlice";
 
 const Navbar: FC = () => {
-  const { total } = useSelector((state: RootState) => state.store);
+  const { amount, cart } = useSelector((state: RootState) => state.store);
+  const dispatch = useDispatch();
+  const { getTotals } = storeActions;
+
+  useEffect(() => {
+    dispatch(getTotals());
+  }, [cart]);
+
   return (
     <nav className={css.navbarContainer}>
       <div>
@@ -17,7 +25,7 @@ const Navbar: FC = () => {
         <div className={css.navbarButtonContainer}>
           <Link href="/cart">
             <button>
-              Cart <span>{total}</span>
+              Cart <span>{amount}</span>
             </button>
           </Link>
         </div>

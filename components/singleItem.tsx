@@ -1,14 +1,19 @@
 import React, { FC } from "react";
 import Image from "next/image";
-import { useSelector } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
+import { modalActions } from "../store/slices/modalSlice";
 import { Data } from "./data";
 import { RootState } from "../store";
 import { FaShoppingBag, FaExpand } from "react-icons/fa";
 import css from "../styles/SingleItem.module.css";
+import { storeActions } from "../store/slices/storeSlice";
 
 const SingleItem: FC = ({ id, name, image, price }: Data) => {
   const { cart } = useSelector((state: RootState) => state.store);
   const inCart = cart.find((item: Data) => item.id === id);
+  const dispatch = useDispatch();
+  const { openModal } = modalActions;
+  const { addToCart } = storeActions;
 
   return (
     <article className={css.product}>
@@ -23,13 +28,14 @@ const SingleItem: FC = ({ id, name, image, price }: Data) => {
         </div>
 
         <div className={css.btnContainer}>
-          <button>
-            <i>
-              <FaExpand />
-            </i>{" "}
-            View Item
-          </button>
-          <button>
+          <button
+            onClick={() => {
+              if (!inCart) {
+                dispatch(openModal());
+                dispatch(addToCart({ id }));
+              }
+            }}
+          >
             {inCart ? (
               "In Cart"
             ) : (

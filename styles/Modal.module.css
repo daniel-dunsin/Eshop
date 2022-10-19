@@ -1,0 +1,35 @@
+.modalOverlay {
+  width: 100%;
+  height: 100vh;
+  z-index: 4;
+  top: 0;
+  left: 0;
+  position: fixed;
+  background-color: rgba(0, 0, 0, 0.6);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.modal {
+  width: 90vw;
+  max-width: 500px;
+  margin: 0 auto;
+  padding: 4rem 1rem;
+  background-color: white;
+  text-align: center;
+  position: relative;
+  font-size: 1.2rem;
+  border-radius: 0.2rem;
+}
+.closeIcon {
+  font-size: 2rem;
+  color: darkred;
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  cursor: pointer;
+}
+
+.modal h1 {
+  cursor: pointer;
+}

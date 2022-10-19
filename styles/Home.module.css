@@ -19,7 +19,7 @@
   border-radius: 4px;
 }
 .inputContainer input:focus {
-  border-color: black;
+  border-color: #ff523b;
 }
 
 .products {
