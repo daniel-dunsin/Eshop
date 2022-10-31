@@ -18,7 +18,7 @@ const SingleItem: FC = ({ id, name, image, price }: Data) => {
   return (
     <article className={css.product}>
       <div className={css.imgContainer}>
-        <Image src={image} width={352} height={300} />
+        <Image src={image} width={352} height={300} alt={name} />
         <div className={css.hoverContainer}></div>
       </div>
       <div className={css.productFooter}>
