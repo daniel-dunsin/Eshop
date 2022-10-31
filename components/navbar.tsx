@@ -1,4 +1,4 @@
-import React, { FC, useEffect } from "react";
+import React, { FC, useEffect, useCallback } from "react";
 import css from "../styles/Navbar.module.css";
 import { useDispatch, useSelector } from "react-redux";
 import { RootState } from "../store";
