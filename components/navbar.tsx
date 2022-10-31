@@ -9,9 +9,9 @@ const Navbar: FC = () => {
   const { amount, cart } = useSelector((state: RootState) => state.store);
   const dispatch = useDispatch();
   const { getTotals } = storeActions;
-  const getTotal = ()=>{ 
+  const getTotal = useCallback(()=>{ 
     dispatch(getTotals())
-  }
+  }, [dispatch, getTotals])
   useEffect(() => {
     getTotal();
   }, [cart, getTotal]);
