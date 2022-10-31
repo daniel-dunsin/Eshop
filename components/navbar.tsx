@@ -9,10 +9,12 @@ const Navbar: FC = () => {
   const { amount, cart } = useSelector((state: RootState) => state.store);
   const dispatch = useDispatch();
   const { getTotals } = storeActions;
-
+  const getTotal = ()=>{ 
+    dispatch(getTotals())
+  }
   useEffect(() => {
-    dispatch(getTotals());
-  }, [cart]);
+    getTotal();
+  }, [cart, getTotal]);
 
   return (
     <nav className={css.navbarContainer}>
